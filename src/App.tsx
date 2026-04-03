@@ -227,6 +227,13 @@ export default function App() {
               upraviť ručne pred vytvorením platobných údajov.
             </div>
 
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-xs text-amber-700">
+              <strong>Upozornenie:</strong> Táto aplikácia slúži len ako pomôcka. Autor nenesie
+              žiadnu právnu zodpovednosť za správnosť zobrazených ani vypočítaných údajov. Pred
+              odoslaním akejkoľvek platby si všetky údaje overte voči vášmu daňovému priznaniu a
+              pokynov príslušného daňového úradu.
+            </div>
+
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 text-sm">
                 <strong>Nepodarilo sa pokračovať:</strong> {error}
@@ -295,16 +302,23 @@ export default function App() {
         )}
       </main>
 
-      <footer className="max-w-3xl mx-auto px-4 py-6 text-center text-xs text-gray-500 border-t border-gray-200 mt-8">
-        Údaje sa spracúvajú iba lokálne vo vašom prehliadači. Aplikácia ich neodosiela na server.{' '}
-        <a
-          href="https://www.financnasprava.sk/sk/infoservis/platenie-dani"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-gray-700"
-        >
-          Oficiálne informácie Finančnej správy SR
-        </a>
+      <footer className="max-w-3xl mx-auto px-4 py-6 text-center text-xs text-gray-500 border-t border-gray-200 mt-8 space-y-2">
+        <p>
+          Údaje sa spracúvajú iba lokálne vo vašom prehliadači. Aplikácia ich neodosiela na server.{' '}
+          <a
+            href="https://www.financnasprava.sk/sk/infoservis/platenie-dani"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-gray-700"
+          >
+            Oficiálne informácie Finančnej správy SR
+          </a>
+        </p>
+        <p className="text-gray-400">
+          Táto aplikácia je poskytovaná „tak ako je", bez akejkoľvek záruky. Autor nenesie žiadnu
+          právnu zodpovednosť za správnosť vypočítaných ani zobrazených údajov. Všetky platobné
+          údaje si pred odoslaním platby overte voči oficiálnym podkladom a pokynov daňového úradu.
+        </p>
       </footer>
     </div>
   );
