@@ -173,7 +173,16 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
           >
             financnasprava.sk
           </a>
-          ). Ak vám ešte nebol pridelený, daňový úrad vám ho oznámi po podaní
+          ), alebo ho môžete zistiť cez{" "}
+          <a
+            href="https://www.financnasprava.sk/sk/elektronicke-sluzby/verejne-sluzby/overenie-prideleneho-oud"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            verejnú službu zistenia prideleného OÚD
+          </a>
+          . Ak vám ešte nebol pridelený, daňový úrad vám ho oznámi po podaní
           priznania. Od oznámenia OÚD plynie 8-dňová lehota na úhradu dane.
         </p>
         <p className="text-xs text-amber-700 mb-2">
