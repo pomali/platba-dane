@@ -1,0 +1,3252 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:simpleType name="ldt_edane_label">
+<xs:restriction base="xs:string">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_Label">
+<xs:restriction base="xs:string">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LDT_DIC">
+<xs:restriction base="xs:string">
+<xs:pattern value="|\d{9}|\d{10}" />
+<xs:minLength value="9" />
+<xs:maxLength value="10" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_datetimepicker">
+<xs:restriction base="xs:date">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_Rok">
+<xs:restriction base="xs:string">
+<xs:pattern value="|20[0-9]{2}" />
+<xs:maxLength value="4" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_radiobutton">
+<xs:restriction base="xs:string">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt30">
+<xs:restriction base="xs:string">
+<xs:maxLength value="30" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt11">
+<xs:restriction base="xs:string">
+<xs:maxLength value="11" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt15">
+<xs:restriction base="xs:string">
+<xs:maxLength value="15" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt60">
+<xs:restriction base="xs:string">
+<xs:maxLength value="60" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_checkbox">
+<xs:restriction base="xs:boolean">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LDT_Datum">
+<xs:restriction base="xs:date">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt16">
+<xs:restriction base="xs:string">
+<xs:maxLength value="16" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt5">
+<xs:restriction base="xs:string">
+<xs:maxLength value="5" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt20">
+<xs:restriction base="xs:string">
+<xs:maxLength value="20" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt10">
+<xs:restriction base="xs:string">
+<xs:maxLength value="10" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_s">
+<xs:restriction base="xs:string">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_email_254">
+<xs:restriction base="xs:string">
+<xs:pattern value="|(?=.{3,254})((?=[@]{1,64}@)(\w+([-+.']\w+)*?)@(?=.{1,254})(\w+([-.]\w+)*\.\w+([-.]\w+)*))" />
+<xs:maxLength value="254" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LDT_Rodne_cislo2">
+<xs:restriction base="xs:string">
+<xs:pattern value="|\d{3,4}" />
+<xs:maxLength value="4" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LDT_Rodne_cislo_datumBezBodky">
+<xs:restriction base="xs:string">
+<xs:pattern value="|[0-9]{6}|([0-9]{4})" />
+<xs:maxLength value="6" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_d5.2">
+<xs:restriction base="xs:string">
+<xs:pattern value="|[0-9]{1,5}(\.[0-9]{1,2}0*)?" />
+<xs:maxLength value="8" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_d4.2">
+<xs:restriction base="xs:string">
+<xs:pattern value="|[0-9]{1,4}(\.[0-9]{1,2}0*)?" />
+<xs:maxLength value="7" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_d2">
+<xs:restriction base="xs:string">
+<xs:pattern value="|[0-9]{1,2}" />
+<xs:maxLength value="2" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LDT_Checkbox">
+<xs:restriction base="xs:boolean">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_d8.2">
+<xs:restriction base="xs:string">
+<xs:pattern value="|[0-9]{1,8}(\.[0-9]{1,2}0*)?" />
+<xs:maxLength value="11" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_d3.2">
+<xs:restriction base="xs:string">
+<xs:pattern value="|[0-9]{1,3}(\.[0-9]{1,2}0*)?" />
+<xs:maxLength value="6" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_Decimal2snepovinnymznamienkom">
+<xs:restriction base="xs:string">
+<xs:pattern value="|[-+]?[0-9]{1,10}\.?[0-9]{0,2}|0|0.00" />
+<xs:maxLength value="14" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_ICO_8_alebo_12">
+<xs:restriction base="xs:string">
+<xs:pattern value="|\d{8}|\d{12}" />
+<xs:maxLength value="12" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt74">
+<xs:restriction base="xs:string">
+<xs:maxLength value="74" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_d6.2">
+<xs:restriction base="xs:string">
+<xs:pattern value="|[0-9]{1,6}(\.[0-9]{1,2}0*)?" />
+<xs:maxLength value="9" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_01_TextArea">
+<xs:restriction base="xs:string">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_Kody_krajin_cislo_nazov">
+<xs:restriction base="xs:string">
+<xs:enumeration value="004">
+<xs:annotation>
+<xs:documentation>004 - Afganistan</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="008">
+<xs:annotation>
+<xs:documentation>008 - Albánsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="010">
+<xs:annotation>
+<xs:documentation>010 - Antarktída</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="012">
+<xs:annotation>
+<xs:documentation>012 - Alžírsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="016">
+<xs:annotation>
+<xs:documentation>016 - Americká Samoa</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="020">
+<xs:annotation>
+<xs:documentation>020 - Andorra</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="024">
+<xs:annotation>
+<xs:documentation>024 - Angola</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="028">
+<xs:annotation>
+<xs:documentation>028 - Antigua a Barbuda</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="031">
+<xs:annotation>
+<xs:documentation>031 - Azerbajdžan</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="032">
+<xs:annotation>
+<xs:documentation>032 - Argentína</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="036">
+<xs:annotation>
+<xs:documentation>036 - Austrália</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="040">
+<xs:annotation>
+<xs:documentation>040 - Rakúsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="044">
+<xs:annotation>
+<xs:documentation>044 - Bahamy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="048">
+<xs:annotation>
+<xs:documentation>048 - Bahrajn</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="050">
+<xs:annotation>
+<xs:documentation>050 - Bangladéš</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="051">
+<xs:annotation>
+<xs:documentation>051 - Arménsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="052">
+<xs:annotation>
+<xs:documentation>052 - Barbados</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="056">
+<xs:annotation>
+<xs:documentation>056 - Belgicko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="060">
+<xs:annotation>
+<xs:documentation>060 - Bermudy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="064">
+<xs:annotation>
+<xs:documentation>064 - Bhután</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="068">
+<xs:annotation>
+<xs:documentation>068 - Bolívia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="070">
+<xs:annotation>
+<xs:documentation>070 - Bosna a Hercegovina</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="072">
+<xs:annotation>
+<xs:documentation>072 - Botswana</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="074">
+<xs:annotation>
+<xs:documentation>074 - Bouvetov ostrov</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="076">
+<xs:annotation>
+<xs:documentation>076 - Brazília</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="084">
+<xs:annotation>
+<xs:documentation>084 - Belize</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="086">
+<xs:annotation>
+<xs:documentation>086 - Britské indickooceánske územie</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="090">
+<xs:annotation>
+<xs:documentation>090 - Šalamúnove ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="092">
+<xs:annotation>
+<xs:documentation>092 - Britské Panenské ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="096">
+<xs:annotation>
+<xs:documentation>096 - Brunejsko-darussalamský štát</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="100">
+<xs:annotation>
+<xs:documentation>100 - Bulharsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="104">
+<xs:annotation>
+<xs:documentation>104 - Mjanmarsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="108">
+<xs:annotation>
+<xs:documentation>108 - Burundi</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="112">
+<xs:annotation>
+<xs:documentation>112 - Bielorusko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="116">
+<xs:annotation>
+<xs:documentation>116 - Kambodža</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="120">
+<xs:annotation>
+<xs:documentation>120 - Kamerun</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="124">
+<xs:annotation>
+<xs:documentation>124 - Kanada</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="132">
+<xs:annotation>
+<xs:documentation>132 - Kapverdy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="136">
+<xs:annotation>
+<xs:documentation>136 - Kajmanie ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="140">
+<xs:annotation>
+<xs:documentation>140 - Stredoafrická republika</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="144">
+<xs:annotation>
+<xs:documentation>144 - Srí Lanka</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="148">
+<xs:annotation>
+<xs:documentation>148 - Čad</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="152">
+<xs:annotation>
+<xs:documentation>152 - Čile</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="156">
+<xs:annotation>
+<xs:documentation>156 - Čína</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="158">
+<xs:annotation>
+<xs:documentation>158 - Taiwan</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="162">
+<xs:annotation>
+<xs:documentation>162 - Vianočný ostrov</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="166">
+<xs:annotation>
+<xs:documentation>166 - Kokosové ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="170">
+<xs:annotation>
+<xs:documentation>170 - Kolumbia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="174">
+<xs:annotation>
+<xs:documentation>174 - Komory</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="175">
+<xs:annotation>
+<xs:documentation>175 - Mayotte</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="178">
+<xs:annotation>
+<xs:documentation>178 - Kongo</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="180">
+<xs:annotation>
+<xs:documentation>180 - Kongo (býv. Zair)</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="184">
+<xs:annotation>
+<xs:documentation>184 - Cookove ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="188">
+<xs:annotation>
+<xs:documentation>188 - Kostarika</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="191">
+<xs:annotation>
+<xs:documentation>191 - Chorvátsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="192">
+<xs:annotation>
+<xs:documentation>192 - Kuba</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="196">
+<xs:annotation>
+<xs:documentation>196 - Cyprus</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="203">
+<xs:annotation>
+<xs:documentation>203 - Česko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="204">
+<xs:annotation>
+<xs:documentation>204 - Benin</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="208">
+<xs:annotation>
+<xs:documentation>208 - Dánsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="212">
+<xs:annotation>
+<xs:documentation>212 - Dominika</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="214">
+<xs:annotation>
+<xs:documentation>214 - Dominikánska republika</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="218">
+<xs:annotation>
+<xs:documentation>218 - Ekvádor</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="222">
+<xs:annotation>
+<xs:documentation>222 - Salvádor</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="226">
+<xs:annotation>
+<xs:documentation>226 - Rovníková Guinea</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="231">
+<xs:annotation>
+<xs:documentation>231 - Etiópia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="232">
+<xs:annotation>
+<xs:documentation>232 - Eritrea</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="233">
+<xs:annotation>
+<xs:documentation>233 - Estónsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="234">
+<xs:annotation>
+<xs:documentation>234 - Faerské ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="238">
+<xs:annotation>
+<xs:documentation>238 - Falklandy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="239">
+<xs:annotation>
+<xs:documentation>239 - Južná Georgia a Južné Sandwichove ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="242">
+<xs:annotation>
+<xs:documentation>242 - Fidži</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="246">
+<xs:annotation>
+<xs:documentation>246 - Fínsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="248">
+<xs:annotation>
+<xs:documentation>248 - Alandy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="250">
+<xs:annotation>
+<xs:documentation>250 - Francúzsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="254">
+<xs:annotation>
+<xs:documentation>254 - Francúzska Guyana</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="258">
+<xs:annotation>
+<xs:documentation>258 - Francúzska Polynézia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="260">
+<xs:annotation>
+<xs:documentation>260 - Francúzske južné územia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="262">
+<xs:annotation>
+<xs:documentation>262 - Džibutsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="266">
+<xs:annotation>
+<xs:documentation>266 - Gabon</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="268">
+<xs:annotation>
+<xs:documentation>268 - Gruzínsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="270">
+<xs:annotation>
+<xs:documentation>270 - Gambia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="275">
+<xs:annotation>
+<xs:documentation>275 - Palestína</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="276">
+<xs:annotation>
+<xs:documentation>276 - Nemecko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="288">
+<xs:annotation>
+<xs:documentation>288 - Ghana</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="292">
+<xs:annotation>
+<xs:documentation>292 - Gibraltár</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="296">
+<xs:annotation>
+<xs:documentation>296 - Karibati</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="300">
+<xs:annotation>
+<xs:documentation>300 - Grécko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="304">
+<xs:annotation>
+<xs:documentation>304 - Grónsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="308">
+<xs:annotation>
+<xs:documentation>308 - Grenada</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="312">
+<xs:annotation>
+<xs:documentation>312 - Guadaloupe</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="316">
+<xs:annotation>
+<xs:documentation>316 - Guam</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="320">
+<xs:annotation>
+<xs:documentation>320 - Guatemala</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="324">
+<xs:annotation>
+<xs:documentation>324 - Guinea</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="328">
+<xs:annotation>
+<xs:documentation>328 - Guyana</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="332">
+<xs:annotation>
+<xs:documentation>332 - Haiti</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="334">
+<xs:annotation>
+<xs:documentation>334 - Heardov ostrov a Macdonaldove ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="336">
+<xs:annotation>
+<xs:documentation>336 - Vatikán</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="340">
+<xs:annotation>
+<xs:documentation>340 - Honduras</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="344">
+<xs:annotation>
+<xs:documentation>344 - Hongkong</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="348">
+<xs:annotation>
+<xs:documentation>348 - Maďarsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="352">
+<xs:annotation>
+<xs:documentation>352 - Island</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="356">
+<xs:annotation>
+<xs:documentation>356 - India</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="360">
+<xs:annotation>
+<xs:documentation>360 - Indonézia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="364">
+<xs:annotation>
+<xs:documentation>364 - Irak</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="364">
+<xs:annotation>
+<xs:documentation>364 - Irán</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="372">
+<xs:annotation>
+<xs:documentation>372 - Írsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="376">
+<xs:annotation>
+<xs:documentation>376 - Izrael</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="380">
+<xs:annotation>
+<xs:documentation>380 - Taliansko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="384">
+<xs:annotation>
+<xs:documentation>384 - Pobrežie Slonoviny</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="388">
+<xs:annotation>
+<xs:documentation>388 - Jamajka</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="392">
+<xs:annotation>
+<xs:documentation>392 - Japonsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="398">
+<xs:annotation>
+<xs:documentation>398 - Kazachstan</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="400">
+<xs:annotation>
+<xs:documentation>400 - Jordánsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="404">
+<xs:annotation>
+<xs:documentation>404 - Keňa</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="408">
+<xs:annotation>
+<xs:documentation>408 - Kórejská ľudovodemokratická republika</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="410">
+<xs:annotation>
+<xs:documentation>410 - Kórejská republika</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="414">
+<xs:annotation>
+<xs:documentation>414 - Kuvajt</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="417">
+<xs:annotation>
+<xs:documentation>417 - Kirgizsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="418">
+<xs:annotation>
+<xs:documentation>418 - Laos</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="422">
+<xs:annotation>
+<xs:documentation>422 - Libanon</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="426">
+<xs:annotation>
+<xs:documentation>426 - Lesotho</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="428">
+<xs:annotation>
+<xs:documentation>428 - Lotyšsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="430">
+<xs:annotation>
+<xs:documentation>430 - Libéria</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="434">
+<xs:annotation>
+<xs:documentation>434 - Líbya</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="438">
+<xs:annotation>
+<xs:documentation>438 - Lichtenštajnsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="440">
+<xs:annotation>
+<xs:documentation>440 - Litva</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="442">
+<xs:annotation>
+<xs:documentation>442 - Luxembursko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="446">
+<xs:annotation>
+<xs:documentation>446 - Macao</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="450">
+<xs:annotation>
+<xs:documentation>450 - Madagaskar</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="454">
+<xs:annotation>
+<xs:documentation>454 - Malawi</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="458">
+<xs:annotation>
+<xs:documentation>458 - Malajzia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="462">
+<xs:annotation>
+<xs:documentation>462 - Maldivy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="466">
+<xs:annotation>
+<xs:documentation>466 - Mali</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="470">
+<xs:annotation>
+<xs:documentation>470 - Malta</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="470">
+<xs:annotation>
+<xs:documentation>470 - Martinik</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="478">
+<xs:annotation>
+<xs:documentation>478 - Mauritánia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="480">
+<xs:annotation>
+<xs:documentation>480 - Maurícius</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="484">
+<xs:annotation>
+<xs:documentation>484 - Mexiko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="492">
+<xs:annotation>
+<xs:documentation>492 - Monako</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="496">
+<xs:annotation>
+<xs:documentation>496 - Mongolsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="498">
+<xs:annotation>
+<xs:documentation>498 - Moldavsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="499">
+<xs:annotation>
+<xs:documentation>499 - Čierna Hora</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="500">
+<xs:annotation>
+<xs:documentation>500 - Montserrat</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="504">
+<xs:annotation>
+<xs:documentation>504 - Maroko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="508">
+<xs:annotation>
+<xs:documentation>508 - Mozambik</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="512">
+<xs:annotation>
+<xs:documentation>512 - Omán</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="516">
+<xs:annotation>
+<xs:documentation>516 - Namíbia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="520">
+<xs:annotation>
+<xs:documentation>520 - Nauru</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="524">
+<xs:annotation>
+<xs:documentation>524 - Nepál</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="528">
+<xs:annotation>
+<xs:documentation>528 - Holandsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="531">
+<xs:annotation>
+<xs:documentation>531 - Curaçao</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="533">
+<xs:annotation>
+<xs:documentation>533 - Aruba</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="534">
+<xs:annotation>
+<xs:documentation>534 - Svätý Martin (holandská časť)</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="535">
+<xs:annotation>
+<xs:documentation>535 - Bonaire, Svätý Eustach a Saba</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="540">
+<xs:annotation>
+<xs:documentation>540 - Nová Kaledónia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="548">
+<xs:annotation>
+<xs:documentation>548 - Vanuatu</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="554">
+<xs:annotation>
+<xs:documentation>554 - Nový Zéland</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="558">
+<xs:annotation>
+<xs:documentation>558 - Nikaragua</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="562">
+<xs:annotation>
+<xs:documentation>562 - Niger</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="566">
+<xs:annotation>
+<xs:documentation>566 - Nigéria</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="570">
+<xs:annotation>
+<xs:documentation>570 - Niue</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="574">
+<xs:annotation>
+<xs:documentation>574 - Norfolk</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="578">
+<xs:annotation>
+<xs:documentation>578 - Nórsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="580">
+<xs:annotation>
+<xs:documentation>580 - Severné Mariány</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="581">
+<xs:annotation>
+<xs:documentation>581 - Menšie odľahlé ostrovy USA</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="583">
+<xs:annotation>
+<xs:documentation>583 - Mikronézia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="584">
+<xs:annotation>
+<xs:documentation>584 - Marshallove ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="585">
+<xs:annotation>
+<xs:documentation>585 - Palau</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="586">
+<xs:annotation>
+<xs:documentation>586 - Pakistan</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="591">
+<xs:annotation>
+<xs:documentation>591 - Panama</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="598">
+<xs:annotation>
+<xs:documentation>598 - Papua-Nová Guinea</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="600">
+<xs:annotation>
+<xs:documentation>600 - Paraguaj</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="604">
+<xs:annotation>
+<xs:documentation>604 - Peru</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="608">
+<xs:annotation>
+<xs:documentation>608 - Filipíny</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="612">
+<xs:annotation>
+<xs:documentation>612 - Pitcairnove ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="616">
+<xs:annotation>
+<xs:documentation>616 - Poľsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="620">
+<xs:annotation>
+<xs:documentation>620 - Portugalsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="624">
+<xs:annotation>
+<xs:documentation>624 - Guinea-Bissau</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="626">
+<xs:annotation>
+<xs:documentation>626 - Východný Timor</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="630">
+<xs:annotation>
+<xs:documentation>630 - Portoriko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="634">
+<xs:annotation>
+<xs:documentation>634 - Katar</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="638">
+<xs:annotation>
+<xs:documentation>638 - Réunion</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="642">
+<xs:annotation>
+<xs:documentation>642 - Rumunsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="643">
+<xs:annotation>
+<xs:documentation>643 - Rusko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="646">
+<xs:annotation>
+<xs:documentation>646 - Rwanda</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="652">
+<xs:annotation>
+<xs:documentation>652 - Svätý Bartolomej</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="654">
+<xs:annotation>
+<xs:documentation>654 - Svätá Helena</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="659">
+<xs:annotation>
+<xs:documentation>659 - Svätý Krištof a Nevis</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="660">
+<xs:annotation>
+<xs:documentation>660 - Anguilla</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="662">
+<xs:annotation>
+<xs:documentation>662 - Svätá Lucia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="663">
+<xs:annotation>
+<xs:documentation>663 - Svätý Martin (francúzska časť)</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="666">
+<xs:annotation>
+<xs:documentation>666 - Saint Pierre a Miquelon</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="670">
+<xs:annotation>
+<xs:documentation>670 - Svätý Vincent a Grenadíny</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="674">
+<xs:annotation>
+<xs:documentation>674 - San Maríno</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="678">
+<xs:annotation>
+<xs:documentation>678 - Svätý Tomáš a Princov ostrov</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="682">
+<xs:annotation>
+<xs:documentation>682 - Saudská Arábia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="686">
+<xs:annotation>
+<xs:documentation>686 - Senegal</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="688">
+<xs:annotation>
+<xs:documentation>688 - Srbsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="690">
+<xs:annotation>
+<xs:documentation>690 - Seychely</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="694">
+<xs:annotation>
+<xs:documentation>694 - Sierra Leone</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="702">
+<xs:annotation>
+<xs:documentation>702 - Singapur</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="703">
+<xs:annotation>
+<xs:documentation>703 - Slovensko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="704">
+<xs:annotation>
+<xs:documentation>704 - Vietnam</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="705">
+<xs:annotation>
+<xs:documentation>705 - Slovinsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="706">
+<xs:annotation>
+<xs:documentation>706 - Somálsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="710">
+<xs:annotation>
+<xs:documentation>710 - Južná Afrika</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="716">
+<xs:annotation>
+<xs:documentation>716 - Zimbabwe</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="724">
+<xs:annotation>
+<xs:documentation>724 - Španielsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="728">
+<xs:annotation>
+<xs:documentation>728 - Južný Sudán</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="729">
+<xs:annotation>
+<xs:documentation>729 - Sudán</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="732">
+<xs:annotation>
+<xs:documentation>732 - Západná Sahara</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="740">
+<xs:annotation>
+<xs:documentation>740 - Surinam</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="744">
+<xs:annotation>
+<xs:documentation>744 - Svalbard a Jan Mayen</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="748">
+<xs:annotation>
+<xs:documentation>748 - Svazijsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="752">
+<xs:annotation>
+<xs:documentation>752 - Švédsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="756">
+<xs:annotation>
+<xs:documentation>756 - Švajčiarsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="760">
+<xs:annotation>
+<xs:documentation>760 - Sýria</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="762">
+<xs:annotation>
+<xs:documentation>762 - Tadžikistan</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="764">
+<xs:annotation>
+<xs:documentation>764 - Thajsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="768">
+<xs:annotation>
+<xs:documentation>768 - Togo</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="772">
+<xs:annotation>
+<xs:documentation>772 - Tokelau</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="776">
+<xs:annotation>
+<xs:documentation>776 - Tonga</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="780">
+<xs:annotation>
+<xs:documentation>780 - Trinidad a Tobago</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="784">
+<xs:annotation>
+<xs:documentation>784 - Spojené arabské emiráty</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="788">
+<xs:annotation>
+<xs:documentation>788 - Tunisko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="792">
+<xs:annotation>
+<xs:documentation>792 - Turecko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="795">
+<xs:annotation>
+<xs:documentation>795 - Turkménsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="796">
+<xs:annotation>
+<xs:documentation>796 - Turks a Caicos</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="798">
+<xs:annotation>
+<xs:documentation>798 - Tuvalu</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="800">
+<xs:annotation>
+<xs:documentation>800 - Uganda</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="804">
+<xs:annotation>
+<xs:documentation>804 - Ukrajina</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="807">
+<xs:annotation>
+<xs:documentation>807 - Macedónsko</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="818">
+<xs:annotation>
+<xs:documentation>818 - Egypt</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="826">
+<xs:annotation>
+<xs:documentation>826 - Spojené kráľovstvo</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="831">
+<xs:annotation>
+<xs:documentation>831 - Guernsey</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="832">
+<xs:annotation>
+<xs:documentation>832 - Jersey</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="833">
+<xs:annotation>
+<xs:documentation>833 - Man</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="834">
+<xs:annotation>
+<xs:documentation>834 - Tanzánia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="840">
+<xs:annotation>
+<xs:documentation>840 - Spojené štáty americké</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="850">
+<xs:annotation>
+<xs:documentation>850 - Americké Panenské ostrovy</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="854">
+<xs:annotation>
+<xs:documentation>854 - Burkina</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="858">
+<xs:annotation>
+<xs:documentation>858 - Uruguaj</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="860">
+<xs:annotation>
+<xs:documentation>860 - Uzbekistan</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="862">
+<xs:annotation>
+<xs:documentation>862 - Venezuela</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="876">
+<xs:annotation>
+<xs:documentation>876 - Wallis a Futuna</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="882">
+<xs:annotation>
+<xs:documentation>882 - Samoa</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="887">
+<xs:annotation>
+<xs:documentation>887 - Jemen</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="894">
+<xs:annotation>
+<xs:documentation>894 - Zambia</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_edane_txt37">
+<xs:restriction base="xs:string">
+<xs:maxLength value="37" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_IBAN">
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z]{2}[0-9]{2}[0-9,A-Z]{10,30}" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="LDT_kod_banky_ciselnik">
+<xs:restriction base="xs:string">
+<xs:enumeration value="200">
+<xs:annotation>
+<xs:documentation>Všeobecná úverová banka, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="600">
+<xs:annotation>
+<xs:documentation>MONETA Money Bank, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="720">
+<xs:annotation>
+<xs:documentation>Národná banka Slovenska</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="900">
+<xs:annotation>
+<xs:documentation>Slovenská sporiteľňa, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="1100">
+<xs:annotation>
+<xs:documentation>Tatra banka, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="1111">
+<xs:annotation>
+<xs:documentation>UniCredit Bank Czech Republic and Slovakia, a.s., pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2010">
+<xs:annotation>
+<xs:documentation>Fio banka, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2070">
+<xs:annotation>
+<xs:documentation>TRINITY BANK a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="3000">
+<xs:annotation>
+<xs:documentation>Slovenská záručná a rozvojová banka, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="3100">
+<xs:annotation>
+<xs:documentation>Prima banka Slovensko, a.s.  – kód pre dobeh platieb </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="4000">
+<xs:annotation>
+<xs:documentation>Expobank CZ a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="5200">
+<xs:annotation>
+<xs:documentation>Československá obchodná banka, a.s. (predtým OTP Banka Slovensko, a.s.) – kód pre dobeh platieb</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="5600">
+<xs:annotation>
+<xs:documentation>Prima banka Slovensko, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="5800">
+<xs:annotation>
+<xs:documentation>JT BANKA, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="5900">
+<xs:annotation>
+<xs:documentation>Prvá stavebná sporiteľňa, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="6000">
+<xs:annotation>
+<xs:documentation>PPF banka a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="6500">
+<xs:annotation>
+<xs:documentation>365.bank, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="7300">
+<xs:annotation>
+<xs:documentation>ING Bank N.V.,  pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="7500">
+<xs:annotation>
+<xs:documentation>Československá obchodná banka, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="7930">
+<xs:annotation>
+<xs:documentation>Wustenrot stavebná sporiteľňa, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8050">
+<xs:annotation>
+<xs:documentation>Commerzbank Aktiengesellschaft, pobočka zahraničnej banky, Bratislava</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8100">
+<xs:annotation>
+<xs:documentation>Komerční banka, a.s., pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8120">
+<xs:annotation>
+<xs:documentation>Privatbanka, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8130">
+<xs:annotation>
+<xs:documentation>Citibank Europe plc, pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8160">
+<xs:annotation>
+<xs:documentation>EXIMBANKA SR</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8170">
+<xs:annotation>
+<xs:documentation>ČSOB stavebná sporiteľňa, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8180">
+<xs:annotation>
+<xs:documentation>Štátna pokladnica</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8191">
+<xs:annotation>
+<xs:documentation>Centrálny depozitár cenných papierov SR, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8320">
+<xs:annotation>
+<xs:documentation>JT BANKA, a.s., pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8330">
+<xs:annotation>
+<xs:documentation>Fio banka, a.s., pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8360">
+<xs:annotation>
+<xs:documentation>mBank S.A., pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8370">
+<xs:annotation>
+<xs:documentation>Oberbank AG  pobočka zahraničnej banky v Slovenskej republike</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8400">
+<xs:annotation>
+<xs:documentation>COFIDIS SA, pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8420">
+<xs:annotation>
+<xs:documentation>BKS Bank AG, pobočka zahraničnej banky v SR</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8430">
+<xs:annotation>
+<xs:documentation>KDB Bank Europe Ltd., pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8440">
+<xs:annotation>
+<xs:documentation>BNP PARIBAS PERSONAL FINANCE SA, pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8450">
+<xs:annotation>
+<xs:documentation>PKO BP S.A., pobočka zahraničnej banky</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="9950">
+<xs:annotation>
+<xs:documentation>SIA Central Europe, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="9952">
+<xs:annotation>
+<xs:documentation>Trust Pay, a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="9954">
+<xs:annotation>
+<xs:documentation>K-PAY a.s.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="9955">
+<xs:annotation>
+<xs:documentation>Unifiedpost Payments, organizačná zložka</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+
+
+<xs:element name="DPFOA2025">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="DPFOA_Nadpis" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DPFOA_DruhDP" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="g1" type="ldt_edane_radiobutton" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>daňové priznanie</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DPFOA_DicDatum" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cmbDic1" type="LDT_DIC" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>01 - DIČ (ak nie je pridelené, uvádza sa rodné číslo)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="dtpDatumNarodenia2" type="ldt_edane_datetimepicker" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>02 - Dátum narodenia</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DPFOA_ZaRok" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cmbRok" type="ldt_Rok" minOccurs="1">
+<xs:annotation>
+<xs:documentation>Rok</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tpDatumDDP" type="ldt_edane_datetimepicker" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Dátum zistenia skutočnosti na podanie dodatočného daňového priznania</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DPFOA_Oddiel1" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="UdajeODanovnikovi" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="UdajeODanovnikoviS" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbPriezvisko3" type="ldt_edane_txt30" minOccurs="1">
+<xs:annotation>
+<xs:documentation>03 - Priezvisko</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbMeno4" type="ldt_edane_txt20" minOccurs="1">
+<xs:annotation>
+<xs:documentation>04 - Meno</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbTitul5_1" type="ldt_edane_txt10" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>05 - Titul (pred menom)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbTitul5_2" type="ldt_edane_txt10" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>05 - Titul (za menom)</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="AdresaTrvalyPobyt" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="AdresaTrvaly1" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbUlica6" type="ldt_edane_txt30" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>06 - Ulica</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbCisloDomu7" type="ldt_edane_txt11" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>07 - Súpisné/orientačné číslo</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="AdresaTrvaly2" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbPSC8" type="ldt_edane_txt15" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>08 - PSČ</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbObec9" type="ldt_edane_txt60" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>09 - Obec</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbStat10" type="ldt_edane_txt30" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>10 - Štát</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ObmedzenaPovinnost" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ObmedzenaPovinnostS11_1" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbNerezident" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>áno</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ObmedzenaPovinnostS11_2" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ObmedzenaPovinnostOd" type="LDT_Datum" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>od</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ObmedzenaPovinnostDo" type="LDT_Datum" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>do</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TIN" type="ldt_edane_txt16" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>TIN</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="AdresaPobytSR" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="AdresaPobytSR1" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbUlica12" type="ldt_edane_txt30" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>12 - Ulica</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbCisloDomu13" type="ldt_edane_txt11" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>13 - Súpisné/orientačné číslo</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="AdresaPobytSR2" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbPSC14" type="ldt_edane_txt5" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>14 - PSČ</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbObec15" type="ldt_edane_txt60" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>15 - Obec</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DPFOA_Oddiel2" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="UdajeZastupca" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="DPFOA2012_DanovePriznanie_FOA_2panel5" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbPriezvisko16" type="ldt_edane_txt30" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>16 - Priezvisko</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbMeno17" type="ldt_edane_txt20" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>17 - Meno</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbTitul18P" type="ldt_edane_txt10" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>18 - Titul (pred menom)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbTitul18Z" type="ldt_edane_txt10" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>18 - Titul (za menom)</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="UdajeZastupca_Adresa" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ZastupcaAdresa1" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbRodneCislo19_1" type="LDT_Rodne_cislo_datumBezBodky" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>19 - Rodné číslo 1.časť</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbRodneCislo19_2" type="LDT_Rodne_cislo2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>19 - Rodné číslo 2.časť</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbUlica20" type="ldt_edane_txt30" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>20 - Ulica</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbCislo21" type="ldt_edane_txt11" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>21 - Súpisné/orientačné číslo</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ZastupcaAdresa2" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbPSC22" type="ldt_edane_txt15" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>22 - PSČ</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbObec23" type="ldt_edane_txt60" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>23 - Obec</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbStat24" type="ldt_edane_txt30" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>24 - Štát</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ZastupcaKontakt1" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ZastupcaKontakt2" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t25Telefon" type="ldt_edane_s" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>25 - Telefónne číslo</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="t26Mail" type="ldt_email_254" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>26 - Emailová adresa</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DPFOA_Oddiel3" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="UdajePoberanieDochodku" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok27" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbR27" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>áno</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok28" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t28" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 28</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="UdajeManzelka" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ManzelkaMeno" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tPriezvisko29_1_1" type="ldt_edane_s" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>29 - Priezvisko a meno</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ManzelkaRodneCislo" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbRodneCisloR29_2" type="LDT_Rodne_cislo_datumBezBodky" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>29 - Rodné číslo 1.časť</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbRodneCisloR29_3" type="LDT_Rodne_cislo2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>29 - Rodné číslo 2.časť</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ManzelkaPrijmy" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="chr30" type="LDT_Checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>uplatňujem nezdaniteľnú časť základu dane na manželku (manžela) podľa § 11 ods. 3 zákona</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tPrijmy29_4" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Vlastné príjmy (v eurách)<sup>6)</sup></xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tMesiace29_5" type="ldt_edane_d2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Počet mesiacov<sup>6)</sup></xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="UdajeDeti" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="sekDeti" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Dieta" minOccurs="4" maxOccurs="20">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tPriezvisko31_1_1" type="ldt_edane_s" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>31 - Priezvisko a meno</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbRodneCislo31_1_2" type="LDT_Rodne_cislo_datumBezBodky" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>31 - Rodné číslo 1.časť</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbRodneCislo31_1_3" type="LDT_Rodne_cislo2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>31 - Rodné číslo 2.časť</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM00_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>1-12</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM01_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>1</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM02_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>2</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM03_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>3</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM04_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>4</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM05_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>5</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM06_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>6</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM07_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>7</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM08_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>8</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM09_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>9</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM10_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>10</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM11_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>11</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM12_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>12</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok31" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbViacAko4" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Údaje o ďalších vyživovaných deťoch uvádzam v IX. oddiele v členení podľa r. 31</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="UdajeOpravnenaOsoba" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="sekUplatPostup" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbUplatPostup" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Uplatňujem postup podľa § 33 ods. 8 zákona</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="sekOpravOsoba" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="OpravnenaOsoba" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbPriezvisko32_1_1" type="ldt_edane_s" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Priezvisko a meno</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbRodneCislo32_1_2" type="LDT_Rodne_cislo_datumBezBodky" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>32 - Rodné číslo 1. časť</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbRodneCislo32_1_3" type="LDT_Rodne_cislo2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>32 - Rodné číslo 2. časť</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_12_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>1-12</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_1" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>1</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_2" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>2</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_3" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>3</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_4" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>4</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_5" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>5</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_6" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>6</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_7" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>7</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_8" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>8</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_9" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>9</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_10" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>10</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_11" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>11</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbM1_12" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>12</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="sekDodatUdajeOO" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbOznDOO" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Oznamujem, že druhá oprávnená osoba uvedená na r. 32 podala daňové priznanie na území Slovenskej republiky<sup>7b)</sup></xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="sekPom" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbKopDokRZD" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>kópiu dokladu o vykonanom ročnom zúčtovaní preddavkov na daň z príjmov zo závislej činnosti podľa zákona (ďalej len &quot;ročné zúčtovanie&quot;) druhej oprávnenej osoby<sup>7c)</sup></xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbKopDokVZD" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>kópiu dokladu preukazujúceho výšku základu dane z príjmov podľa § 5 zákona druhej oprávnenej osoby, ktorej ročné zúčtovanie nebolo vykonané, a nemala povinnosť podať daňové priznanie <sup>7c)</sup></xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok32a" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t32a" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 32a</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Oddiel4" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="SekRiadok33" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="chr33" type="LDT_Checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>uplatňujem daňový bonus na zaplatené úroky <br/>podľa § 33a zákona<sup>8)</sup></xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="t33_1" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Zaplatené úroky za zdaňovacie obdobie (v eurách)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="t33_2" type="ldt_edane_d2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Počet mesiacov</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SekDatumZacUrUv" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="DatumZacUroUve" type="LDT_Datum" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Dátum začatia úročenia úveru</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="DatumUzavZmluUverByv" type="LDT_Datum" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Dátum uzavretia zmluvy o úveru na bývanie</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Oddiel5" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok34" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t34" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 34</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Ztoho32a" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok35" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t35" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 35</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok36" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbR36" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 36</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Ztoho33a" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok37" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbR37" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 37</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok38" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbR38" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 38</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok39" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t39" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 39</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Oddiel6" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ZnizenieDane" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok40" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t40" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 40</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok41" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t41" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok41</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok42" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t42" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 42</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok43" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t43" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 43</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok44" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t44" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 44</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok45" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t45" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 45</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok46" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t46" type="ldt_edane_d3.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 46</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok47" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t47" type="ldt_edane_d3.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 47</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="VypocetDane" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok48" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t48" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 48</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok49" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t49" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 49</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok50" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t50" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 50</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DPFOA2012_DanovePriznanie_FOA_3panel27" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok51" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t51" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 51</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok52" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t52" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 52</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok53" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t53" type="ldt_edane_d3.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 53</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok54" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t54" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 54</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok55" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t55" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 55</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok56" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t56" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 56</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok56a" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t56a" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 56a</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok57" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t57" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 57</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok58" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t58" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 58</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok59" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t59" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 59</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok60" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t60" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 60</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok61" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t61" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 61</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok62" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t62" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 62</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok63" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t63" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 63</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok64" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t64" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 64</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok65" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t65" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 65</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok66" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t66" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 66</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok67" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t67" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 67</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="sek_UhrPreddavkov" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok68" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t68" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 68</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok69" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t69" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 69</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok70" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t70" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 70</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok71" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t71" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 71</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok72" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t72" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok72</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Oddiel7" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok73" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t73" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 73</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok74" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t74" type="ldt_Decimal2snepovinnymznamienkom" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 74</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok75" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t75" type="ldt_Decimal2snepovinnymznamienkom" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 75</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok76" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t76" type="ldt_Decimal2snepovinnymznamienkom" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 76</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok77" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t77" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 77</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok78" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t78" type="ldt_Decimal2snepovinnymznamienkom" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 78</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok79" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t79" type="ldt_edane_d4.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 79</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok80" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t80" type="ldt_Decimal2snepovinnymznamienkom" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 80</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Oddiel8" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="DPFOA2012_DanovePriznanie_FOA_5panel21" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="sekNeP50a" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbParagraf50" type="LDT_Checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation><b>neuplatňujem postup podľa § 50 zákona</b></xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok81" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ico76" type="ldt_ICO_8_alebo_12" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>81 - IČO</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ObchodneMeno" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ObchMeno76" type="ldt_edane_txt74" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Obchodné meno</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok82" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbSplnam3per" type="LDT_Checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>spĺňam podmienky na poukázanie 3 % z dane<sup>23)</sup></xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="t82" type="ldt_edane_d6.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Riadok 82</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="chb_SuhlasUdaje" type="LDT_Checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>súhlasím so zaslaním údajov (meno, priezvisko a trvalý pobyt) mnou určenému prijímateľovi podielu zaplatenej dane uvedenému v r. 81 podľa § 50 ods. 8 zákona</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Riadok83" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="sekNeP50aa" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbParagraf50aa" type="LDT_Checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation><b>neuplatňujem postup podľa § 50aa zákona</b></xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="sekRodiciaHl" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="sekciaRodic" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbRodneCislo83A_1" type="LDT_Rodne_cislo_datumBezBodky" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>83 - Rodné číslo 1. časť a)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbRodneCislo83B_1" type="LDT_Rodne_cislo_datumBezBodky" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>83 - Rodné číslo 1. časť b)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbRodneCislo83A_2" type="LDT_Rodne_cislo2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>83 - Rodné číslo 2.časť a)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="tbRodneCislo83B_2" type="LDT_Rodne_cislo2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>83 - Rodné číslo 2.časť b)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Priezvisko83A" type="ldt_edane_txt30" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Priezvisko a)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Priezvisko83B" type="ldt_edane_txt30" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Priezvisko b)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Meno83A" type="ldt_edane_txt20" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Meno a)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Meno83B" type="ldt_edane_txt20" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Meno b)</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="chNahrStar" type="LDT_Checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>bol som zverený do starostlivosti nahrádzajúcej starostlivosť rodičov na základe rozhodnutia príslušného orgánu<sup>24)</sup></xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Oddiel9" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbUvadzam" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Uvádzam osobitné záznamy</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="secPom" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="UdajePrijem9_lbl" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="UdajePrijem9" minOccurs="3" maxOccurs="9999">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="KodStatu" type="ldt_Kody_krajin_cislo_nazov" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Kód štátu (IX.oddiel)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cast9prijmy1" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Príjmy (IX.oddiel)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cast9vydavky1" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Výdavky (IX.oddiel)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cast9vydavky2" type="ldt_edane_d5.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>z toho výdavky(IX.oddiel)</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="OsobitneZaznamy" type="ldt_01_TextArea" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Osobitne záznamy</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Oddiel10" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok84" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t84" type="ldt_edane_txt37" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 84</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok85" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t85" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 85</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Ztoho85a" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Riadok85a" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t85a" type="ldt_edane_d8.2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>riadok 85a</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Riadok86" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="t86" type="ldt_edane_d2" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>86 - počet príloh</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Vyhlasenie" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="tbDatumVyhlasenie" type="ldt_edane_datetimepicker" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Dátum (X.oddiel)</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Oddiel11" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ZiadamoOddiel11" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cbVyplatitRozdiel" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation><b>Žiadam o vyplatenie daňového bonusu alebo rozdielu daňového bonusu</b> podľa zákona (r. 61 alebo rozdiel z r. 78, ak je kladný)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbVyplatitZamPremiu" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation><b>Žiadam o vyplatenie zamestnaneckej prémie</b> podľa § 32a zákona (z r. 46)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbBonus" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation><b>Žiadam o vyplatenie daňového bonusu na zaplatené úroky alebo rozdielu daňového bonusu na zaplatené úroky</b> podľa § 33a zákona (r. 67 alebo rozdiel z r. 80, ak je kladný)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="cbVratit" type="ldt_edane_checkbox" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation><b>Žiadam o vrátenie daňového preplatku</b> podľa § 79 zákona č. 563/2009 Z. z. o správe daní (daňový poriadok) a o zmene a doplnení niektorých zákonov v znení neskorších predpisov (z r. 72 alebo rozdiel z r. 76, ak je záporný)</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="PoukazkaUcet" type="ldt_edane_radiobutton" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>poštovou poukážkou (do výšky 15 000 eur vrátane)</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="IbanOddiel11" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cast11IBAN" type="ldt_IBAN" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>IBAN</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Skryte_pomocne_pole" type="LDT_kod_banky_ciselnik" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Skryte pomocne pole - Kody bank pre Iban</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="DatumOddiel11" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="dtpDatumDB" type="ldt_edane_datetimepicker" minOccurs="0" nillable="true">
+<xs:annotation>
+<xs:documentation>Dátum (XI.oddiel)</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+

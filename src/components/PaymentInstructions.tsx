@@ -59,6 +59,9 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
   const [paymentTypeCode, setPaymentTypeCode] = useState('00');
   const [taxTypeCode, setTaxTypeCode] = useState('DP_FO');
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
+  const [spaydQrDataUrl, setSpaydQrDataUrl] = useState<string>('');
+  const [paymeUrl, setPaymeUrl] = useState('');
+  const [paymeQrDataUrl, setPaymeQrDataUrl] = useState<string>('');
 
   const rok = taxData.zdanovaciePeriod ?? new Date().getFullYear().toString();
   const suma = taxData.danNaUhradu ?? 0;
@@ -72,9 +75,17 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
     ? buildPaymentDetails(oud.trim(), suma, taxTypeCode, rok)
     : null;
 
-  // Generate QR pay code (Slovak "pay by square" standard, simplified)
+  // Generate supported payment QR payloads from one source of truth.
   useEffect(() => {
-    if (!payment) return;
+    if (!payment) {
+      setQrDataUrl('');
+      setSpaydQrDataUrl('');
+      setPaymeUrl('');
+      setPaymeQrDataUrl('');
+      return;
+    }
+
+    const iban = payment.iban.replace(/\s/g, '');
 
     // Slovak QR pay format (uprostenená verzia - bysquare nie je open standard,
     // preto použijeme SEPA credit transfer QR format)
@@ -83,11 +94,11 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
       '002',         // Version
       '1',           // Encoding (UTF-8)
       'SCT',         // Identification
-      'SUBASKBX',    // BIC of Štátna pokladnica (approximate)
-      '',            // Beneficiary name (optional)
-      payment.iban.replace(/\s/g, ''), // IBAN
+      '',    // BIC of Štátna pokladnica
+      'Financna Sprava Slovenskej Republiky',            // Beneficiary name (optional)
+      iban, // IBAN
       `EUR${suma.toFixed(2)}`,         // Amount
-      '',            // Purpose code
+      'Platba Dane z Prijmov FO',            // Purpose code
       payment.variabilnySymbol,        // Remittance info (VS)
       '',            // Unstructured remittance info
       '',            // Beneficiary to originator info
@@ -96,7 +107,40 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
     QRCode.toDataURL(sepaQr, { width: 200, margin: 1 })
       .then((url) => setQrDataUrl(url))
       .catch(() => setQrDataUrl(''));
+
+    // SPAYD (Short Payment Descriptor) – standard used in SK/CZ banking apps
+    const spaydParts = [
+      'SPD*1.0',
+      `ACC:${iban}`,
+      `AM:${suma.toFixed(2)}`,
+      'CC:EUR',
+      'RN:Financna Sprava Slovenskej Republiky',
+      `X-VS:${payment.variabilnySymbol}`,
+      'MSG:Platba Dane z Prijmov FO',
+    ];
+    const spaydQr = spaydParts.join('*');
+
+    QRCode.toDataURL(spaydQr, { width: 200, margin: 1 })
+      .then((url) => setSpaydQrDataUrl(url))
+      .catch(() => setSpaydQrDataUrl(''));
+
+    const paymeParams = new URLSearchParams({
+      IBAN: iban,
+      AM: suma.toFixed(2), // Amount
+      CC: 'EUR', // Currency
+      PI: `/VS${payment.variabilnySymbol}/SS/KS`, // Payment Identification
+      MSG: 'Platba dane z prijmov FO',
+      CN: 'Financna Sprava Slovenskej Republiky', // Creditor Name
+    });
+    const generatedPaymeUrl = `https://payme.sk/2/q/PME?${paymeParams.toString()}`;
+
+    setPaymeUrl(generatedPaymeUrl);
+
+    QRCode.toDataURL(generatedPaymeUrl, { width: 200, margin: 1 })
+      .then((url) => setPaymeQrDataUrl(url))
+      .catch(() => setPaymeQrDataUrl(''));
   }, [payment, suma]);
+
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
@@ -190,7 +234,7 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
             <InfoRow
               label="Variabilný symbol"
               value={payment.variabilnySymbol}
-              note={`Druh dane: ${selectedTaxType.vsPrefix} + Rok: ${rok}`}
+              note={`Druh dane + Typ úhrady: ${selectedTaxType.vsPrefix} + Rok: ${rok}`}
             />
             <InfoRow
               label="Suma"
@@ -206,16 +250,57 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
             />
           </dl>
 
-          {qrDataUrl && (
-            <div className="mt-6 flex flex-col items-center gap-2">
-              <p className="text-sm text-gray-500">QR kód pre platbu (SEPA formát)</p>
-              <img
-                src={qrDataUrl}
-                alt="QR kód pre platbu"
-                className="border border-gray-200 rounded-lg p-2"
-                width={200}
-                height={200}
-              />
+          {(qrDataUrl || spaydQrDataUrl || paymeQrDataUrl) && (
+            <div className="mt-6 flex flex-col sm:flex-row justify-center gap-8">
+              {spaydQrDataUrl && (
+                <div className="flex flex-col items-center gap-2">
+                  <p className="text-sm font-medium text-gray-600">SPAYD QR kód</p>
+                  <img
+                    src={spaydQrDataUrl}
+                    alt="SPAYD QR kód pre platbu"
+                    className="border border-gray-200 rounded-lg p-2"
+                    width={200}
+                    height={200}
+                  />
+                  <p className="text-xs text-gray-400">Podporovaný SK/CZ bankovými appkami</p>
+                </div>
+              )}
+              {paymeQrDataUrl && (
+                <div className="flex flex-col items-center gap-2">
+                  <p className="text-sm font-medium text-gray-600">Payme.sk QR kód</p>
+                  <img
+                    src={paymeQrDataUrl}
+                    alt="Payme.sk QR kód pre platbu"
+                    className="border border-gray-200 rounded-lg p-2"
+                    width={200}
+                    height={200}
+                  />
+                  {paymeUrl && (
+                    <a
+                      href={paymeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-[13.75rem] h-[3.75rem] leading-[3.75rem] px-5 text-center text-lg font-bold text-white no-underline bg-[#0055ff] rounded-lg cursor-pointer"
+                    >
+                      Otvoriť payme.sk link
+                    </a>
+                  )}
+                  <p className="text-xs text-gray-400">Rýchle otvorenie platby cez payme.sk</p>
+                </div>
+              )}
+              {qrDataUrl && (
+                <div className="flex flex-col items-center gap-2">
+                  <p className="text-sm font-medium text-gray-600">EPC QR kód</p>
+                  <img
+                    src={qrDataUrl}
+                    alt="EPC QR kód pre platbu"
+                    className="border border-gray-200 rounded-lg p-2"
+                    width={200}
+                    height={200}
+                  />
+                  <p className="text-xs text-gray-400">SEPA Credit Transfer (európsky štandard)</p>
+                </div>
+              )}
             </div>
           )}
 

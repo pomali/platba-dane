@@ -24,34 +24,12 @@ export const TAX_TYPES: TaxType[] = [
     code: 'DP_FO',
     name: 'Daň z príjmov fyzickej osoby (Typ A / Typ B)',
     prefix: '500208',
-    vsPrefix: '1700',
-  },
-  {
-    code: 'DP_FO_PREDDAVOK',
-    name: 'Preddavok na daň z príjmov fyzickej osoby',
-    prefix: '500208',
-    vsPrefix: '1700',
-  },
-  {
-    code: 'DP_PO',
-    name: 'Daň z príjmov právnickej osoby',
-    prefix: '500267',
-    vsPrefix: '1400',
-  },
-  {
-    code: 'DPH',
-    name: 'Daň z pridanej hodnoty (DPH)',
-    prefix: '500241',
-    vsPrefix: '1200',
+    vsPrefix: '170099',
   },
 ];
 
 export const PAYMENT_TYPES = [
-  { code: '00', name: 'Daňové priznanie' },
-  { code: '01', name: 'Opravné daňové priznanie' },
-  { code: '02', name: 'Preddavok na daň' },
-  { code: '03', name: 'Nedoplatok z daňovej kontroly' },
-  { code: '04', name: 'Iná platba' },
+  { code: '99', name: 'Daň na úhradu' },
 ];
 
 /** Slovak IBAN check digit calculation (ISO 13616) */
