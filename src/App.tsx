@@ -14,6 +14,14 @@ export default function App() {
   const [fileName, setFileName] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
+  const [manualYear, setManualYear] = useState('');
+  const [manualAmount, setManualAmount] = useState('');
+
+  const parsedManualAmount = Number.parseFloat(manualAmount.replace(',', '.'));
+  const canContinueManual =
+    /^\d{4}$/.test(manualYear.trim()) &&
+    Number.isFinite(parsedManualAmount) &&
+    parsedManualAmount > 0;
 
   const handleFileSelect = async (file: File) => {
     setIsLoading(true);
@@ -44,15 +52,26 @@ export default function App() {
   };
 
   const handleManualEntry = () => {
+    if (!canContinueManual) {
+      setError('Pre manuálne zadanie vyplňte platné zdaňovacie obdobie (rok) a daň na úhradu.');
+      return;
+    }
+
+    setError('');
     setTaxData({
       druhDane: 'Daň z príjmov fyzickej osoby (Typ A / Typ B)',
+      zdanovaciePeriod: manualYear.trim(),
+      danNaUhradu: parsedManualAmount,
     });
-    setFileName('Manuálne zadanie');
+    setFileName('Manuálne zadanie (povinné údaje)');
     setStep('review');
   };
 
   const steps = ['upload', 'review', 'payment'] as const;
   const stepLabels = ['Nahratie súboru', 'Kontrola údajov', 'Platobné inštrukcie'];
+  const canContinueToPayment =
+    Boolean(taxData?.zdanovaciePeriod?.trim()) &&
+    Boolean(taxData?.danNaUhradu && taxData.danNaUhradu > 0);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -112,41 +131,102 @@ export default function App() {
           <div className="space-y-6">
             <div className="text-center">
               <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                Nahrajte daňové priznanie
+                Začnite nahraním súboru alebo manuálnym zadaním
               </h2>
               <p className="text-gray-500 text-sm">
                 Nahrajte vyplnené daňové priznanie vo formáte <strong>XML</strong> alebo{' '}
-                <strong>PDF</strong>. Súbor sa spracuje iba vo vašom prehliadači – nikam sa nenahrá.
+                <strong>PDF</strong>, prípadne zadajte aspoň povinné údaje ručne.
               </p>
             </div>
 
-            <FileUpload onFileSelect={handleFileSelect} isLoading={isLoading} />
+            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
+              <div className="bg-white rounded-xl border border-gray-200 p-4">
+                <h3 className="text-sm font-semibold text-gray-800 mb-2">Nahrať priznanie</h3>
+                <p className="text-xs text-gray-500 mb-3">
+                  XML/PDF sa spracuje iba lokálne vo vašom prehliadači.
+                </p>
+                <FileUpload onFileSelect={handleFileSelect} isLoading={isLoading} />
+
+                <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-700">
+                  <strong>Ako to funguje:</strong>
+                  <ol className="list-decimal list-inside mt-2 space-y-1">
+                    <li>Nahrajte XML alebo PDF súbor s daňovým priznaním</li>
+                    <li>Aplikácia automaticky vyplní dostupné údaje</li>
+                    <li>Doplňte OÚD (Osobný účet daňovníka)</li>
+                    <li>Skopírujte platobné inštrukcie alebo naskenujte QR kód</li>
+                  </ol>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-center md:hidden -my-2">
+                <div className="flex items-center gap-3 w-full max-w-xs">
+                  <div className="h-px flex-1 bg-gray-200" />
+                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-400">alebo</span>
+                  <div className="h-px flex-1 bg-gray-200" />
+                </div>
+              </div>
+
+              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                <div className="px-3 py-1 rounded-full border border-gray-200 bg-white text-xs font-semibold uppercase tracking-wide text-gray-400 shadow-sm">
+                  alebo
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl border border-gray-200 p-4">
+                <h3 className="text-sm font-semibold text-gray-800 mb-2">
+                  Ručne zadať
+                </h3>
+                <p className="text-xs text-gray-500 mb-3">
+                  Zadajte iba údaje potrebné na vytvorenie platobných inštrukcií.
+                </p>
+
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">
+                      Zdaňovacie obdobie (rok)
+                    </label>
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={4}
+                      value={manualYear}
+                      onChange={(e) => setManualYear(e.target.value.replace(/\D/g, ''))}
+                      placeholder="napr. 2025"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 mb-1">
+                      Daň na úhradu (€)
+                    </label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      value={manualAmount}
+                      onChange={(e) => setManualAmount(e.target.value)}
+                      placeholder="napr. 250.00"
+                      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+
+                  <button
+                    onClick={handleManualEntry}
+                    disabled={!canContinueManual}
+                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-semibold px-4 py-2.5 rounded-lg transition-colors"
+                  >
+                    Pokračovať s manuálnym zadaním
+                  </button>
+                </div>
+              </div>
+            </div>
 
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 text-sm">
                 <strong>Chyba:</strong> {error}
               </div>
             )}
-
-            <div className="text-center">
-              <p className="text-sm text-gray-500 mb-2">alebo</p>
-              <button
-                onClick={handleManualEntry}
-                className="text-blue-600 hover:text-blue-800 text-sm underline"
-              >
-                Zadajte údaje manuálne
-              </button>
-            </div>
-
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-700">
-              <strong>Ako to funguje:</strong>
-              <ol className="list-decimal list-inside mt-2 space-y-1">
-                <li>Nahrajte XML alebo PDF súbor s daňovým priznaním</li>
-                <li>Aplikácia automaticky vyplní dostupné údaje</li>
-                <li>Doplňte OÚD (Osobný účet daňovníka)</li>
-                <li>Skopírujte platobné inštrukcie alebo naskenujte QR kód</li>
-              </ol>
-            </div>
           </div>
         )}
 
@@ -177,16 +257,16 @@ export default function App() {
             <div className="flex justify-end">
               <button
                 onClick={() => setStep('payment')}
-                disabled={!taxData.danNaUhradu || taxData.danNaUhradu <= 0}
+                disabled={!canContinueToPayment}
                 className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-semibold px-6 py-2.5 rounded-lg transition-colors"
               >
                 Pokračovať →
               </button>
             </div>
 
-            {(!taxData.danNaUhradu || taxData.danNaUhradu <= 0) && (
+            {!canContinueToPayment && (
               <p className="text-sm text-amber-600 text-right">
-                ⚠ Zadajte sumu dane na úhradu pre pokračovanie
+                ⚠ Zadajte zdanovacie obdobie a sumu dane na úhradu pre pokračovanie
               </p>
             )}
           </div>

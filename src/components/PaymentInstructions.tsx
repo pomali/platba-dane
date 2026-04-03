@@ -4,7 +4,6 @@ import {
   buildPaymentDetails,
   formatIBAN,
   TAX_TYPES,
-  PAYMENT_TYPES,
 } from '../utils/paymentUtils';
 import type { TaxData } from '../utils/xmlParser';
 
@@ -56,8 +55,7 @@ function InfoRow({
 
 export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
   const [oud, setOud] = useState('');
-  const [paymentTypeCode, setPaymentTypeCode] = useState('00');
-  const [taxTypeCode, setTaxTypeCode] = useState('DP_FO');
+  const taxTypeCode = 'DP_FO';
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
   const [spaydQrDataUrl, setSpaydQrDataUrl] = useState<string>('');
   const [paymeUrl, setPaymeUrl] = useState('');
@@ -67,7 +65,6 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
   const suma = taxData.danNaUhradu ?? 0;
 
   const selectedTaxType = TAX_TYPES.find((t) => t.code === taxTypeCode) || TAX_TYPES[0];
-  const selectedPaymentType = PAYMENT_TYPES.find((p) => p.code === paymentTypeCode) || PAYMENT_TYPES[0];
 
   const isReady = oud.trim().length >= 8 && suma > 0;
 
@@ -164,7 +161,7 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
           >
             financnasprava.sk
           </a>
-          ) alebo na daňovom úrade.
+          ), alebo Vám bude oznámený DÚ po podaní daňového priznania ak ste ho nemali pridelený. Od momentu oznámenia OÚD máte 8 dní na úhradu dane.
         </p>
         <input
           type="text"
@@ -176,45 +173,17 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
         />
       </div>
 
-      {/* Tax type and payment type selectors */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div>
-          <label className="block text-sm font-medium text-gray-600 mb-1">
-            Druh dane / Účel platby
-          </label>
-          <select
-            value={taxTypeCode}
-            onChange={(e) => setTaxTypeCode(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {TAX_TYPES.map((t) => (
-              <option key={t.code} value={t.code}>
-                {t.name}
-              </option>
-            ))}
-          </select>
-          <p className="text-xs text-gray-400 mt-1">
-            Číslo účtu (prefix): {selectedTaxType.prefix} / Kód dane: {selectedTaxType.vsPrefix}
-          </p>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-600 mb-1">Typ úhrady</label>
-          <select
-            value={paymentTypeCode}
-            onChange={(e) => setPaymentTypeCode(e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            {PAYMENT_TYPES.map((p) => (
-              <option key={p.code} value={p.code}>
-                {p.name}
-              </option>
-            ))}
-          </select>
-          <p className="text-xs text-gray-400 mt-1">
-            Typ úhrady kód: {selectedPaymentType.code}
-          </p>
-        </div>
+      <div className="mb-6 text-sm text-gray-700 space-y-1">
+        <p>
+          <span className="font-medium text-gray-800">Druh dane / Účel platby:</span>{' '}
+          {taxData.druhDane ?? selectedTaxType.name}
+        </p>
+        <p>
+          <span className="font-medium text-gray-800">Typ úhrady:</span> Daňové priznanie (kód 00)
+        </p>
+        <p className="text-xs text-gray-400">
+          Číslo účtu (prefix): {selectedTaxType.prefix} / Kód dane: {selectedTaxType.vsPrefix}
+        </p>
       </div>
 
       {/* Payment details */}
