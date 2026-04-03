@@ -85,10 +85,8 @@ export function formatIBAN(iban: string): string {
 
 /**
  * Generate variabilný symbol.
- * Format: [vsPrefix][typUhrady][rok]
- * Example: 1700 + 00 + 2023 = "17002023" (but the code is 8 chars: 4+4)
- * Actually format is: vsPrefix(4 chars) + rok(4 chars) = 8 chars
- * typUhrady is encoded in the vsPrefix for standard declarations.
+ * Format: [vsPrefix][rok] = 8 characters total
+ * Example: vsPrefix "1700" + rok "2023" = "17002023"
  */
 export function generateVariabilnySymbol(
   vsPrefix: string,

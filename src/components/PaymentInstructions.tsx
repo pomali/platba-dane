@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import QRCode from 'qrcode';
 import {
   buildPaymentDetails,
@@ -59,7 +59,6 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
   const [paymentTypeCode, setPaymentTypeCode] = useState('00');
   const [taxTypeCode, setTaxTypeCode] = useState('DP_FO');
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const rok = taxData.zdanovaciePeriod ?? new Date().getFullYear().toString();
   const suma = taxData.danNaUhradu ?? 0;
@@ -217,7 +216,6 @@ export function PaymentInstructions({ taxData }: PaymentInstructionsProps) {
                 width={200}
                 height={200}
               />
-              <canvas ref={canvasRef} className="hidden" />
             </div>
           )}
 
