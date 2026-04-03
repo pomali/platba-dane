@@ -32,6 +32,56 @@ export const PAYMENT_TYPES = [
   { code: '99', name: 'Daň na úhradu' },
 ];
 
+/** Normalize IBAN by removing spaces and uppercasing. */
+export function normalizeIBAN(iban: string): string {
+  return iban.replace(/\s+/g, '').toUpperCase();
+}
+
+/** Convert IBAN letters to numbers (A=10 .. Z=35). */
+function ibanToNumericString(value: string): string {
+  let numeric = '';
+
+  for (const char of value) {
+    const code = char.charCodeAt(0);
+    if (code >= 65 && code <= 90) {
+      numeric += (code - 55).toString();
+    } else {
+      numeric += char;
+    }
+  }
+
+  return numeric;
+}
+
+/** Streaming modulo to avoid huge integer parsing for long IBANs. */
+function mod97(value: string): number {
+  let remainder = 0;
+
+  for (const digit of value) {
+    remainder = (remainder * 10 + Number(digit)) % 97;
+  }
+
+  return remainder;
+}
+
+/** Validate IBAN format and checksum according to ISO 13616. */
+export function isValidIBAN(iban: string): boolean {
+  const normalized = normalizeIBAN(iban);
+
+  if (!/^[A-Z]{2}\d{2}[A-Z0-9]+$/.test(normalized)) {
+    return false;
+  }
+
+  if (normalized.length < 15 || normalized.length > 34) {
+    return false;
+  }
+
+  const rearranged = normalized.slice(4) + normalized.slice(0, 4);
+  const numeric = ibanToNumericString(rearranged);
+
+  return mod97(numeric) === 1;
+}
+
 /** Slovak IBAN check digit calculation (ISO 13616) */
 function calculateIbanCheckDigits(bban: string): string {
   // Move first 4 chars to end, replace SK with 2820 (S=28, K=20), append "00"

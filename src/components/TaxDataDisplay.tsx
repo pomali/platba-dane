@@ -32,7 +32,7 @@ function Field({
         />
       ) : (
         <div className="border border-gray-200 bg-gray-50 rounded-lg px-3 py-2 text-sm text-gray-700">
-          {value || <span className="text-gray-400 italic">Nenájdené</span>}
+          {value || <span className="text-gray-400 italic">Nezistené</span>}
         </div>
       )}
     </div>
@@ -57,7 +57,7 @@ export function TaxDataDisplay({ data, onChange }: TaxDataDisplayProps) {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
       <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-        <span className="text-blue-600">📋</span> Údaje z daňového priznania
+        <span className="text-blue-600">📋</span> Údaje na kontrolu a úhradu
       </h2>
 
       <div
@@ -68,25 +68,25 @@ export function TaxDataDisplay({ data, onChange }: TaxDataDisplayProps) {
         }`}
       >
         {hasParsedIdentity
-          ? 'Kontrolné údaje formulára boli načítané. Pole Druh dane, DIČ, Rodné číslo, Meno a Priezvisko sú iba na kontrolu.'
-          : 'Niektoré kontrolné údaje formulára sa nepodarilo načítať. Overte, či ste nahrali správny DPFO formulár.'}
+          ? 'Údaje z formulára sa podarilo načítať. Skontrolujte ich, prípadne upravte povinné polia nižšie.'
+          : 'Niektoré údaje sa nepodarilo načítať automaticky. Skontrolujte správnosť formulára a doplňte povinné polia ručne.'}
       </div>
 
       <div className="space-y-4">
         <section className="border border-blue-200 bg-blue-50 rounded-lg p-4">
           <h3 className="text-sm font-semibold text-blue-900 mb-3">
-            Povinné údaje pre pokračovanie
+            Povinné údaje pre vytvorenie platby
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Field
-              label="Zdaňovacie obdobie (rok)"
+              label="Rok zdaňovacieho obdobia"
               value={data.zdanovaciePeriod ?? ''}
               onChange={(v) => update('zdanovaciePeriod', v)}
-              placeholder="napr. 2023"
+              placeholder="napr. 2025"
             />
 
             <div>
-              <label className="text-sm font-medium text-gray-600">Daň na úhradu (€)</label>
+              <label className="text-sm font-medium text-gray-600">Suma dane na úhradu (EUR)</label>
               <input
                 type="number"
                 step="0.01"
@@ -104,11 +104,11 @@ export function TaxDataDisplay({ data, onChange }: TaxDataDisplayProps) {
 
         <section className="border border-gray-200 rounded-lg p-4">
           <h3 className="text-sm font-semibold text-gray-800 mb-3">
-            Kontrolné údaje formulára (iba na kontrolu)
+            Údaje načítané z formulára (iba na kontrolu)
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Field
-              label="Druh dane / Účel platby"
+              label="Druh dane"
               value={data.druhDane ?? TAX_TYPES[0].name}
             />
 
@@ -132,7 +132,7 @@ export function TaxDataDisplay({ data, onChange }: TaxDataDisplayProps) {
 
       {!!missingChecks.length && (
         <p className="mt-3 text-xs text-amber-700">
-          Chýbajúce kontrolné polia: {missingChecks.map((item) => item.label).join(', ')}.
+          Nepodarilo sa načítať: {missingChecks.map((item) => item.label).join(', ')}.
         </p>
       )}
     </div>

@@ -13,7 +13,7 @@ export function FileUpload({ onFileSelect, isLoading }: FileUploadProps) {
     (file: File) => {
       const ext = file.name.toLowerCase().split('.').pop();
       if (ext !== 'xml' && ext !== 'pdf') {
-        alert('Prosím nahrajte súbor vo formáte XML alebo PDF.');
+        alert('Nahrajte súbor vo formáte XML alebo PDF.');
         return;
       }
       onFileSelect(file);
@@ -76,11 +76,11 @@ export function FileUpload({ onFileSelect, isLoading }: FileUploadProps) {
           />
         </svg>
         {isLoading ? (
-          <p className="text-gray-500">Spracovávam súbor…</p>
+          <p className="text-gray-500">Spracúvam súbor, chvíľu strpenia...</p>
         ) : (
           <>
             <p className="text-lg font-medium text-gray-700">
-              Pretiahnite súbor sem alebo kliknite pre výber
+              Pretiahnite súbor sem alebo kliknite na výber
             </p>
             <p className="text-sm text-gray-500">Podporované formáty: XML, PDF</p>
           </>

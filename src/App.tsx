@@ -38,14 +38,14 @@ export default function App() {
         const buffer = await file.arrayBuffer();
         data = await parsePdf(buffer);
       } else {
-        throw new Error('Nepodporovaný formát súboru. Prosím použite XML alebo PDF.');
+        throw new Error('Nepodporovaný formát. Nahrajte súbor XML alebo PDF.');
       }
 
       setTaxData(data);
       setFileName(file.name);
       setStep('review');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Chyba pri spracovaní súboru.');
+      setError(err instanceof Error ? err.message : 'Súbor sa nepodarilo spracovať. Skúste to znova.');
     } finally {
       setIsLoading(false);
     }
@@ -53,7 +53,7 @@ export default function App() {
 
   const handleManualEntry = () => {
     if (!canContinueManual) {
-      setError('Pre manuálne zadanie vyplňte platné zdaňovacie obdobie (rok) a daň na úhradu.');
+      setError('Pre manuálne zadanie vyplňte platný rok a sumu dane na úhradu.');
       return;
     }
 
@@ -68,7 +68,7 @@ export default function App() {
   };
 
   const steps = ['upload', 'review', 'payment'] as const;
-  const stepLabels = ['Nahratie súboru', 'Kontrola údajov', 'Platobné inštrukcie'];
+  const stepLabels = ['Nahratie alebo zadanie', 'Kontrola údajov', 'Platobné údaje'];
   const canContinueToPayment =
     Boolean(taxData?.zdanovaciePeriod?.trim()) &&
     Boolean(taxData?.danNaUhradu && taxData.danNaUhradu > 0);
@@ -82,7 +82,7 @@ export default function App() {
           <div>
             <h1 className="text-xl font-bold text-gray-900">Platba dane</h1>
             <p className="text-xs text-gray-500">
-              Pomoc s platbou slovenských daní
+              Rýchle vytvorenie platobných údajov k DPFO
             </p>
           </div>
         </div>
@@ -131,29 +131,29 @@ export default function App() {
           <div className="space-y-6">
             <div className="text-center">
               <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                Začnite nahraním súboru alebo manuálnym zadaním
+                Nahrajte priznanie alebo zadajte údaje ručne
               </h2>
               <p className="text-gray-500 text-sm">
-                Nahrajte vyplnené daňové priznanie vo formáte <strong>XML</strong> alebo{' '}
-                <strong>PDF</strong>, prípadne zadajte aspoň povinné údaje ručne.
+                Podporované súbory: <strong>XML</strong> a <strong>PDF</strong>. Ak súbor
+                nemáte, môžete vyplniť iba povinné údaje.
               </p>
             </div>
 
             <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
               <div className="bg-white rounded-xl border border-gray-200 p-4">
-                <h3 className="text-sm font-semibold text-gray-800 mb-2">Nahrať priznanie</h3>
+                <h3 className="text-sm font-semibold text-gray-800 mb-2">A&#41; Nahrať priznanie</h3>
                 <p className="text-xs text-gray-500 mb-3">
-                  XML/PDF sa spracuje iba lokálne vo vašom prehliadači.
+                  Súbor sa spracuje iba lokálne vo vašom prehliadači.
                 </p>
                 <FileUpload onFileSelect={handleFileSelect} isLoading={isLoading} />
 
                 <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-700">
-                  <strong>Ako to funguje:</strong>
+                  <strong>Postup:</strong>
                   <ol className="list-decimal list-inside mt-2 space-y-1">
-                    <li>Nahrajte XML alebo PDF súbor s daňovým priznaním</li>
-                    <li>Aplikácia automaticky vyplní dostupné údaje</li>
-                    <li>Doplňte OÚD (Osobný účet daňovníka)</li>
-                    <li>Skopírujte platobné inštrukcie alebo naskenujte QR kód</li>
+                    <li>Nahrajte XML/PDF súbor s priznaním</li>
+                    <li>Skontrolujte automaticky načítané údaje</li>
+                    <li>Doplňte OÚD (osobný účet daňovníka)</li>
+                    <li>Skopírujte údaje alebo použite QR kód</li>
                   </ol>
                 </div>
               </div>
@@ -174,16 +174,16 @@ export default function App() {
 
               <div className="bg-white rounded-xl border border-gray-200 p-4">
                 <h3 className="text-sm font-semibold text-gray-800 mb-2">
-                  Ručne zadať
+                  B&#41; Zadať údaje ručne
                 </h3>
                 <p className="text-xs text-gray-500 mb-3">
-                  Zadajte iba údaje potrebné na vytvorenie platobných inštrukcií.
+                  Vhodné, ak ešte nemáte XML/PDF. Stačí rok a suma dane.
                 </p>
 
                 <div className="space-y-3">
                   <div>
                     <label className="block text-sm font-medium text-gray-600 mb-1">
-                      Zdaňovacie obdobie (rok)
+                      Rok zdaňovacieho obdobia
                     </label>
                     <input
                       type="text"
@@ -198,7 +198,7 @@ export default function App() {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-600 mb-1">
-                      Daň na úhradu (€)
+                      Suma dane na úhradu (EUR)
                     </label>
                     <input
                       type="number"
@@ -216,15 +216,20 @@ export default function App() {
                     disabled={!canContinueManual}
                     className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-semibold px-4 py-2.5 rounded-lg transition-colors"
                   >
-                    Pokračovať s manuálnym zadaním
+                    Pokračovať s ručným zadaním
                   </button>
                 </div>
               </div>
             </div>
 
+            <div className="bg-gray-100 border border-gray-200 rounded-lg p-4 text-xs text-gray-600">
+              <strong>Tip:</strong> Ak aplikácia niektoré údaje nenačíta, môžete ich v ďalšom kroku
+              upraviť ručne pred vytvorením platobných údajov.
+            </div>
+
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 text-sm">
-                <strong>Chyba:</strong> {error}
+                <strong>Nepodarilo sa pokračovať:</strong> {error}
               </div>
             )}
           </div>
@@ -236,11 +241,11 @@ export default function App() {
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-xl font-bold text-gray-800">
-                  Skontrolujte údaje
+                  Skontrolujte a prípadne upravte údaje
                 </h2>
                 {fileName && (
                   <p className="text-sm text-gray-500 mt-0.5">
-                    Súbor: <span className="font-medium">{fileName}</span>
+                    Zdroj údajov: <span className="font-medium">{fileName}</span>
                   </p>
                 )}
               </div>
@@ -260,13 +265,13 @@ export default function App() {
                 disabled={!canContinueToPayment}
                 className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-semibold px-6 py-2.5 rounded-lg transition-colors"
               >
-                Pokračovať →
+                Vytvoriť platobné údaje →
               </button>
             </div>
 
             {!canContinueToPayment && (
               <p className="text-sm text-amber-600 text-right">
-                ⚠ Zadajte zdanovacie obdobie a sumu dane na úhradu pre pokračovanie
+                ⚠ Pre pokračovanie zadajte rok a sumu dane na úhradu.
               </p>
             )}
           </div>
@@ -276,7 +281,7 @@ export default function App() {
         {step === 'payment' && taxData && (
           <div className="space-y-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold text-gray-800">Platobné inštrukcie</h2>
+              <h2 className="text-xl font-bold text-gray-800">Platobné údaje</h2>
               <button
                 onClick={() => setStep('review')}
                 className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1"
@@ -290,16 +295,15 @@ export default function App() {
         )}
       </main>
 
-      <footer className="max-w-3xl mx-auto px-4 py-6 text-center text-xs text-gray-400 border-t border-gray-200 mt-8">
-        Aplikácia spracováva údaje iba lokálne vo vašom prehliadači. Žiadne údaje sa nezdieľajú
-        ani nenahrávajú na server.{' '}
+      <footer className="max-w-3xl mx-auto px-4 py-6 text-center text-xs text-gray-500 border-t border-gray-200 mt-8">
+        Údaje sa spracúvajú iba lokálne vo vašom prehliadači. Aplikácia ich neodosiela na server.{' '}
         <a
           href="https://www.financnasprava.sk/sk/infoservis/platenie-dani"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline hover:text-gray-600"
+          className="underline hover:text-gray-700"
         >
-          Finančná správa SR – Platenie daní
+          Oficiálne informácie Finančnej správy SR
         </a>
       </footer>
     </div>
