@@ -1,73 +1,46 @@
-# React + TypeScript + Vite
+# 🇸🇰 Platba dane
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Jednoduchá webová aplikácia na rýchle vytvorenie platobných údajov pre **daň z príjmov fyzickej osoby (DPFO)** na Slovensku.
 
-Currently, two official plugins are available:
+🔗 **[platba-dane.arcicode.com](https://platba-dane.arcicode.com)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Čo to robí
 
-## React Compiler
+Aplikácia v troch krokoch vygeneruje všetky potrebné platobné údaje (IBAN, variabilný symbol, sumu) a QR kódy pre platbu dane:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Nahratie alebo zadanie** – nahrajte XML alebo PDF súbor s daňovým priznaním, alebo zadajte rok a sumu ručne
+2. **Kontrola údajov** – skontrolujte a prípadne upravte automaticky načítané údaje
+3. **Platobné údaje** – zadajte OÚD a získajte IBAN, variabilný symbol a QR kódy pre SK/CZ bankové aplikácie (SPAYD), Payme.sk aj európsky SEPA štandard (EPC)
 
-## Expanding the ESLint configuration
+**Všetky dáta sa spracúvajú iba lokálne vo vašom prehliadači** – žiadny súbor ani osobný údaj sa neodosiela na server.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Screenshoty
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Krok 1 – Nahratie súboru alebo ručné zadanie
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+![Krok 1 – nahranie alebo zadanie](docs/screenshots/step1-upload.png)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Krok 2 – Kontrola načítaných údajov
+
+![Krok 2 – kontrola údajov](docs/screenshots/step2-review.png)
+
+### Krok 3 – Platobné údaje a QR kódy
+
+![Krok 3 – platobné údaje](docs/screenshots/step3-payment.png)
+
+## Lokálny vývoj
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Zostavenie
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
+
+## Upozornenie
+
+Táto aplikácia slúži len ako pomôcka. Autor nenesie žiadnu právnu zodpovednosť za správnosť zobrazených ani vypočítaných údajov. Pred odoslaním akejkoľvek platby si všetky údaje overte voči vášmu daňovému priznaniu a pokynov príslušného daňového úradu.
